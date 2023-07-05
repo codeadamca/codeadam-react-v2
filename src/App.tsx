@@ -5,20 +5,19 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 
 import {SvgIcon} from "@mui/material";
 import {ReactComponent as Logo} from "./images/logo.svg";
+import {palette} from "@mui/system";
+
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import ProTip from "./ProTip";
+import Header from "./components/header";
 
-import {
-  AccessAlarm,
-  PhotoCamera,
-  ThreeDRotation,
-  Delete,
-} from "@mui/icons-material";
+import {AccessAlarm, ThreeDRotation, Delete} from "@mui/icons-material";
 
 function Copyright() {
   return (
@@ -35,24 +34,9 @@ function Copyright() {
 export default function App() {
   return (
     <Container maxWidth={false}>
-      <AppBar position="absolute">
-        <Toolbar>
-          <SvgIcon sx={{mr: 1}} color="secondary">
-            <Logo />
-          </SvgIcon>
-          <Typography color="inherit" noWrap>
-            Teaching | Research and Publishings | Speaking Engagements |
-            Professional Development | About Me
-          </Typography>
-        </Toolbar>
-      </AppBar>
-
+      <Header />
       <Box
         sx={{
-          backgroundImage: "url(https://source.unsplash.com/random?wallpapers)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -60,17 +44,80 @@ export default function App() {
           justifyContent: "center",
         }}
       >
-        <Box sx={{zIndex: 2}}>
-          <Typography variant="h1" color="secondary">
-            Adam Thomas
+        <Box
+          sx={{
+            zIndex: 2,
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            variant="h1"
+            noWrap
+            sx={{
+              color: "secondary.main",
+              fontSize: "2.5rem",
+              fontWeight: 400,
+              marginBottom: 1,
+            }}
+          >
+            <Box
+              component="span"
+              sx={{
+                paddingLeft: 1,
+                paddingRight: 1,
+                bgcolor: "text.primary",
+              }}
+            >
+              Adam Thomas
+            </Box>
           </Typography>
-          <Typography variant="h2" color="secondary">
-            I Teach Code!
+          <Typography
+            variant="h2"
+            noWrap
+            sx={{
+              color: "error.main",
+              fontSize: "3.5rem",
+              fontWeight: 400,
+              marginBottom: 1,
+            }}
+          >
+            <Box
+              component="span"
+              sx={{
+                paddingLeft: 1,
+                paddingRight: 1,
+                bgcolor: "text.primary",
+              }}
+            >
+              I Teach Code!
+            </Box>
           </Typography>
-          <Typography color="secondary">
-            Self-taught full-stack developer.
+          <Typography
+            sx={{
+              color: "secondary.main",
+              lineHeight: 2,
+            }}
+          >
+            <Box
+              component="span"
+              sx={{
+                padding: 0.5,
+                bgcolor: "text.primary",
+              }}
+            >
+              Self-taught full-stack developer.
+            </Box>
             <br />
-            Learning code and teaching code at Humber College, Toronto, Canada.
+            <Box
+              component="span"
+              sx={{
+                padding: 0.5,
+                bgcolor: "text.primary",
+              }}
+            >
+              Learning code and teaching code at Humber College, Toronto,
+              Canada.
+            </Box>
           </Typography>
         </Box>
 
@@ -78,7 +125,7 @@ export default function App() {
           preload="auto"
           autoPlay={true}
           loop={true}
-          className="ca-fullscreen-background"
+          muted={true}
           style={{
             objectFit: "cover",
             width: "100vw",
@@ -90,23 +137,6 @@ export default function App() {
           <source src="https://codeadam.ca/static/media/home-video.6057a6c8ab306b428d78.mp4" />
         </video>
       </Box>
-
-      <Grid
-        container
-        component="main"
-        sx={{
-          backgroundImage: "url(https://source.unsplash.com/random?wallpapers)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          verticalAlign: "center",
-          height: "100vh",
-        }}
-      >
-        <Typography variant="h1" color="secondary">
-          Some Content
-        </Typography>
-      </Grid>
 
       <Container>
         <Box sx={{my: 4}}>
